@@ -6,7 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Provider } from "react-native-paper";
 
 import HomeScreen from "./src/components/HomeScreen";
-import ProductDetail from "./src/components/ProductDetail";
+import ProductDetailScreen from "./src/components/ProductDetailScreen";
 import CategoryScreen from "./src/components/CategoryScreen";
 import CartScreen from "./src/components/CartScreen";
 import SearchResultScreen from "./src/components/SearchResultScreen";
@@ -23,7 +23,7 @@ export default function App() {
           }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Product" component={ProductDetail} />
+          <Stack.Screen name="Product" component={ProductDetailScreen} />
           <Stack.Screen name="Category" component={CategoryScreen} />
           <Stack.Screen name="Cart" component={CartScreen} />
           <Stack.Screen name="SearchResult" component={SearchResultScreen} />

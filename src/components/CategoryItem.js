@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 const CategotyItem = ({ category, navigation }) => {
   const goToDetails = () => {
@@ -11,7 +11,7 @@ const CategotyItem = ({ category, navigation }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={goToDetails}>
       <View style={styles.icon}>
-        <Icon name="pencil" size={25}></Icon>
+        <Icon name="fire" size={25} color="orange"></Icon>
       </View>
       <Text style={styles.name}>{category.name}</Text>
     </TouchableOpacity>

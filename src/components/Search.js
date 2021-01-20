@@ -1,7 +1,7 @@
 import React from "react";
 import { Searchbar, Button } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Search = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -10,7 +10,7 @@ const Search = ({ navigation }) => {
 
   const goToResult = () => {
     navigation.navigate("SearchResult", {
-      title: `Résultat pour ${searchQuery}`,
+      title: `Résultat pour "${searchQuery}"`,
     });
   };
 
@@ -19,13 +19,21 @@ const Search = ({ navigation }) => {
       <Searchbar
         placeholder="Rechercher..."
         onChangeText={onChangeSearch}
+        onSubmitEditing={goToResult}
         value={searchQuery}
         style={styles.search}
         noShadow={true}
       />
-      <Button onPress={goToResult} style={styles.searchBtn}>
-        <Icon name="arrow-right" size={30} color="white"></Icon>
-      </Button>
+      <Icon.Button
+        name="arrow-right"
+        onPress={goToResult}
+        style={styles.searchBtn}
+        size={30}
+        color="white"
+        iconStyle={{ marginRight: 0 }}
+        borderRadius={20}
+        backgroundColor="#3080ad"
+      />
     </View>
   );
 };
@@ -34,11 +42,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     marginTop: 30,
-    marginHorizontal: 20,
     backgroundColor: "#ecf0fa",
     height: 70,
     borderRadius: 20,
-    elevation: 3,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -46,7 +52,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
   },
   search: {
@@ -57,11 +62,10 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   searchBtn: {
-    width: "20%",
     height: "100%",
-    backgroundColor: "#3080ad",
+    width: 70,
     justifyContent: "center",
-    borderRadius: 20,
+    alignItems: "center",
   },
 });
 

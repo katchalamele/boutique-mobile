@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 const ProductItem = ({ product, navigation }) => {
   const goToDetails = () => {
@@ -26,12 +26,16 @@ const ProductItem = ({ product, navigation }) => {
       <View style={{ flex: 1, justifyContent: "flex-end" }}>
         <View style={styles.bottomView}>
           <Text style={styles.price}>{product.price / 100}€</Text>
-          <Button
+          <Icon.Button
+            name="shopping-cart"
             onPress={() => console.log("Pressed2")}
             style={styles.cartBtn}
-          >
-            <Icon name="shopping-cart" size={20} color="white" />
-          </Button>
+            iconStyle={{ marginRight: 0 }}
+            size={15}
+            color="white"
+            backgroundColor="#3080ad"
+            borderRadius={10}
+          />
         </View>
       </View>
     </TouchableOpacity>
@@ -69,16 +73,15 @@ const styles = StyleSheet.create({
   bottomView: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     width: "85%",
     marginVertical: 10,
+    marginLeft: 40,
   },
   cartBtn: {
-    width: 5,
-    height: 30,
-    backgroundColor: "#3080ad",
+    width: 35,
+    height: 35,
     justifyContent: "center",
-    borderRadius: 10,
   },
   price: {
     fontWeight: "bold",
