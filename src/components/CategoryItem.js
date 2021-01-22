@@ -1,11 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+
+import { getProductsByCategoryApi } from "../api/boutiquedkmAPI";
 
 const CategotyItem = ({ category, navigation }) => {
   const goToDetails = () => {
-    navigation.navigate("Category", { category });
+    navigation.navigate("ProductList", {
+      title: category.name,
+      query: getProductsByCategoryApi(category.id),
+      filterByName: { placeholder: `Rechercher dans ${category.name}...` },
+    });
   };
 
   return (

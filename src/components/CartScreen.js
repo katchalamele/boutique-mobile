@@ -6,7 +6,7 @@ import Header from "./Header";
 const CartScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
-      <Header title="Panier" navigation={navigation} searchBar={false} />
+      <Header title="Panier" navigation={navigation} />
     </SafeAreaView>
   );
 };

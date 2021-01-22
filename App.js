@@ -7,9 +7,8 @@ import { Provider } from "react-native-paper";
 
 import HomeScreen from "./src/components/HomeScreen";
 import ProductDetailScreen from "./src/components/ProductDetailScreen";
-import CategoryScreen from "./src/components/CategoryScreen";
+import ProductListScreen from "./src/components/ProductListScreen";
 import CartScreen from "./src/components/CartScreen";
-import SearchResultScreen from "./src/components/SearchResultScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,9 +23,8 @@ export default function App() {
         >
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Product" component={ProductDetailScreen} />
-          <Stack.Screen name="Category" component={CategoryScreen} />
+          <Stack.Screen name="ProductList" component={ProductListScreen} />
           <Stack.Screen name="Cart" component={CartScreen} />
-          <Stack.Screen name="SearchResult" component={SearchResultScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

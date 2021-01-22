@@ -5,6 +5,9 @@ export const getProductsFromApi = (path) => {
   return fetchApi(url);
 };
 
+export const getProductsByCategoryApi = (id) => `/api/products?category=${id}`;
+export const getProductsByNameApi = (name) => `/api/products?name=${name}`;
+
 export const getCategoriesFromApi = () => {
   return fetchApi(`${apiHost}/api/categories`);
 };

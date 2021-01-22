@@ -4,13 +4,12 @@ import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 import MenuButton from "./MenuButton";
-import Search from "./Search";
 
-const Header = ({ title, navigation, searchBar, color }) => {
-  const searchBarState = searchBar === undefined ? true : searchBar;
-  const fontColor = color === undefined ? "black" : color;
+const Header = ({ title, navigation, color, bgColor }) => {
+  const fontColor = color ? color : "black";
+  const backgroundColor = bgColor ? bgColor : "transparent";
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: backgroundColor }]}>
       <View style={styles.menuBar}>
         {navigation.canGoBack() && (
           <Icon.Button
@@ -35,16 +34,18 @@ const Header = ({ title, navigation, searchBar, color }) => {
           />
         )}
       </View>
-      <Text style={styles.title}>{title}</Text>
-      {searchBarState && <Search navigation={navigation} />}
+      <Text style={[styles.title, { color: fontColor }]}>{title}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 30,
-    marginTop: Platform.OS === "android" ? 25 : 5,
+    paddingHorizontal: 30,
+    paddingBottom: 30,
+    paddingTop: Platform.OS === "android" ? 25 : 5,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   menuBar: {
     flexDirection: "row",

@@ -6,7 +6,6 @@ import {
   ImageBackground,
   StyleSheet,
 } from "react-native";
-import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 import Header from "./Header";
@@ -16,7 +15,7 @@ const ProductDetailScreen = ({ navigation, route }) => {
   return (
     <ImageBackground source={{ uri: product.mainPicture }} style={styles.image}>
       <SafeAreaView style={styles.container}>
-        <Header navigation={navigation} searchBar={false} color="#fff" />
+        <Header navigation={navigation} color="#fff" />
         <View style={styles.descriptionContainer}>
           <View style={styles.description}>
             <View
@@ -29,7 +28,7 @@ const ProductDetailScreen = ({ navigation, route }) => {
               <Text style={styles.title}>{product.name}</Text>
               <Text style={styles.title}>{product.price / 100}€</Text>
             </View>
-            <Text>{product.category.name}</Text>
+            <Text style={styles.category}>{product.category.name}</Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Icon name="star" size={20} color="gold" solid />
               <Text style={{ fontWeight: "bold" }}> 4,2 </Text>
@@ -93,6 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: { fontWeight: "bold", fontSize: 22 },
+  category: { fontWeight: "bold", color: "grey", fontSize: 15 },
   btn: {
     minHeight: 60,
     paddingHorizontal: 30,

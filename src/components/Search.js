@@ -1,7 +1,8 @@
 import React from "react";
-import { Searchbar, Button } from "react-native-paper";
+import { Searchbar } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { getProductsByNameApi } from "../api/boutiquedkmAPI";
 
 const Search = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -9,8 +10,9 @@ const Search = ({ navigation }) => {
   const onChangeSearch = (query) => setSearchQuery(query);
 
   const goToResult = () => {
-    navigation.navigate("SearchResult", {
+    navigation.navigate("ProductList", {
       title: `Résultat pour "${searchQuery}"`,
+      query: getProductsByNameApi(searchQuery),
     });
   };
 
@@ -41,7 +43,7 @@ const Search = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginTop: 30,
+    marginHorizontal: 30,
     backgroundColor: "#ecf0fa",
     height: 70,
     borderRadius: 20,
