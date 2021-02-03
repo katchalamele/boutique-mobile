@@ -1,4 +1,4 @@
-const apiHost = "http://172.20.10.2:8000";
+const apiHost = "http://boutiquedkm.herokuapp.com";
 
 export const getProductsFromApi = (path) => {
   const url = path ? `${apiHost}${path}` : `${apiHost}/api/products`;
